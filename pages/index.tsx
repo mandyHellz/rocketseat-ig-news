@@ -1,8 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import SubscribeButton from "../components/SubscribeButton";
-import styles from "./home.module.scss";
+
 import { GetStaticProps } from "next";
 import { stripe } from "../services/stripe";
+import { ToastContainer } from "react-toastify";
+
+import styles from "./home.module.scss";
 
 interface HomeProps {
   product: {
@@ -20,6 +24,7 @@ export default function Home({ product }: HomeProps) {
 
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
+          <ToastContainer></ToastContainer>
           <span>👏 Hey, welcome!</span>
           <h1>
             News about <br></br>
