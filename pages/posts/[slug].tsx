@@ -40,7 +40,18 @@ export const getServerSideProps: GetServerSideProps = async ({
   params,
 }) => {
   const session = await getSession({ req });
-  const slug = params?.slug;
+  const { slug } = params;
+
+  if (!session?.activeSubscription) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  console.log(session);
 
   const prismic = GetPrismicClient(req);
 
@@ -59,15 +70,6 @@ export const getServerSideProps: GetServerSideProps = async ({
       }
     ),
   };
-
-  //   if (slug === "favicon.png") {
-  //     return {
-  //       redirect: {
-  //         destination: "/",
-  //         permanent: false,
-  //       },
-  //     };
-  //   }
 
   return {
     props: {
