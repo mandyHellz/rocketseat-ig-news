@@ -1,9 +1,11 @@
-# About this app
+# IgNews 📄
+
+## About the app
 
 Paid text content subscription platform project with NextJs, Typescript, Sass and third-party api's - authentication, payment and database.
 Built during the "Rocketseat Ignite: React Trail" course.
 
-## Dependencies
+### Requirements
 
 Required to have accounts in the following tools
 
