@@ -26,7 +26,7 @@ export default function Posts({ posts }: PostsProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {posts.map((post) => (
-            <Link href={`/posts/${post.slug}`} key={post.slug}>
+            <Link href={`posts/preview/${post.slug}`} key={post.slug}>
               <a>
                 <time>{post.updatedAt}</time>
                 <strong>{post.title}</strong>
@@ -75,5 +75,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       posts,
     },
+    redirect: 60 * 30, //30 minutes
   };
 };
